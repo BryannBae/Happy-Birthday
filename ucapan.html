@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahun Spesial untukmu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .heart {
+            color: #e91e63;
+            font-size: 24px;
+            animation: beat 1s infinite alternate;
+            display: inline-block;
+        }
+        @keyframes beat {
+            to { transform: scale(1.2); }
+        }
+        .photo-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid #e91e63;
+            overflow: hidden;
+        }
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .signature {
+            font-style: italic;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #e91e63;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="photo-placeholder">
+            <!-- Ganti dengan foto pasangan Anda -->
+            <img src="FullSizeRender.jpg" alt="Foto Pasangan">
+        </div>
+        
+        <h1>Happy 19th Birthday My Love! <span class="heart">❤</span></h1>
+        
+        <p>Today is all about celebrating you —</p>
+        
+        <p> The most beautiful, kind, and amazing person I've ever met.
+You light up my days with your smile.</p>
+        
+        <p> Fill my heart with joy, and make my life better just by being in it.
+I’m so grateful for every moment we share, every laugh, every hug, and even our little silly moments.</p>
+        
+        <p>Today, I don't just celebrate the day you were born
+I celebrate the gift the universe gave me when it placed you in my life.
+You are my favorite story, my sweetest melody,
+and the home my heart will always return to.
+</p>
+        
+        <p>May your days be as beautiful as your smile,
+and may our love only grow deeper with every year that passes.
+You are my always, my forever, my everything.</p>
+
+       <p>Happy Birthday, my darling. I love you endlessly.</p>
+        
+        <p class="signature">With Love,<br>Bryan Bosco</p>
+    </div>
+
+    <script>
+        // Animasi confetti sederhana
+        function createConfetti() {
+            const colors = ['#e91e63', '#ffeb3b', '#4caf50', '#2196f3', '#9c27b0'];
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = -10 + 'px';
+            confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+            
+            document.body.appendChild(confetti);
+            
+            let position = -10;
+            let opacity = 1;
+            let rotation = Math.random() * 360;
+            let speed = 1 + Math.random() * 3;
+            
+            const fall = setInterval(() => {
+                position += speed;
+                rotation += 2;
+                opacity -= 0.005;
+                
+                confetti.style.top = position + 'px';
+                confetti.style.transform = 'rotate(' + rotation + 'deg)';
+                confetti.style.opacity = opacity;
+                
+                if (position > window.innerHeight || opacity <= 0) {
+                    clearInterval(fall);
+                    confetti.remove();
+                }
+            }, 20);
+        }
+        
+        // Buat confetti setiap 100ms selama 3 detik saat halaman dimuat
+        window.onload = function() {
+            const confettiInterval = setInterval(createConfetti, 100);
+            setTimeout(() => {
+                clearInterval(confettiInterval);
+            }, 3000);
+        };
+    </script>
+</body>
+</html>
